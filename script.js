@@ -1,4 +1,4 @@
-const api_url = "http://api.quotable.io/random";
+const api_url = "https://api.quotable.io/random";
 
 async function getQuote(url) {
   try {
@@ -13,3 +13,6 @@ async function getQuote(url) {
     document.getElementById("author").innerText = "";
   }
 }
+
+// Load first quote on page load
+getQuote(api_url);
