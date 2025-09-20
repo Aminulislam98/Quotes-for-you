@@ -1,6 +1,6 @@
 const api_url = "https://api.quotable.io/random";
 
-async function getQuote(url) {
+async function getQuote(api_url) {
   try {
     const response = await fetch(url);
     if (!response.ok) throw new Error("Network response was not ok");
