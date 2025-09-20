@@ -1,18 +1,13 @@
-const api_url = "https://api.quotable.io/random";
+const api_url = "http://api.quotable.io/random";
 
-async function getQuote(api_url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Network response was not ok");
-    const data = await response.json();
-    document.getElementById("quote").innerText = data.content;
-    document.getElementById("author").innerText = "— " + data.author;
-  } catch (error) {
-    console.error("Failed to fetch quote:", error);
-    document.getElementById("quote").innerText = "Failed to load quote.";
-    document.getElementById("author").innerText = "";
-  }
+async function getQuote(url) {
+  const quote = document.getElementById("quote");
+  const author = document.getElementById("author");
+  const response = await fetch(url);
+  var data = await response.json();
+  console.log(data);
+  quote.innerHTML = data.content;
+  author.innerHTML = data.author;
 }
 
-// Load first quote on page load
 getQuote(api_url);
